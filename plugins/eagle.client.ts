@@ -13,7 +13,6 @@ import liff from '@line/liff'
 
 // @ts-ignore
 window.liff = liff
-
 // @ts-ignore
 import $ from 'jquery'
 // @ts-ignore

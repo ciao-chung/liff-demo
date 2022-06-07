@@ -1,9 +1,9 @@
 module.exports = {
-  name: 'Higher Eagle',
+  name: 'LIFF Demo',
   manifest: {
-    name: 'Higher Eagle',
-    short_name: 'Higher Eagle',
-    description: 'Lock and Load already',
+    name: 'LIFF Demo',
+    short_name: 'LIFF Demo',
+    description: '',
     theme_color: '#1190cb',
     background_color: '#000000',
   },
@@ -13,9 +13,10 @@ module.exports = {
     defaultTimeZone: "Asia/Taipei"
   },
   seo: {
-    title: 'Higher Eagle',
-    keywords: 'Higher Eagle',
-    description: `Lock and Load already`,
+    title: 'LIFF Demo',
+    keywords: 'LIFF Demo',
+    description: ``,
   },
-  slogan: `Lock and Load already`
+  slogan: ``,
+  liffId: '1657198221-yl3GQYl7',
 }

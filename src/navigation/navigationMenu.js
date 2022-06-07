@@ -4,12 +4,12 @@ export default {
   computed: {
     menu() {
       const menu = [
-        {
-          label: 'Home',
-          route: {
-            name: 'home',
-          },
-        },
+        // {
+        //   label: 'Home',
+        //   route: {
+        //     name: 'home',
+        //   },
+        // },
       ]
 
       return menu
