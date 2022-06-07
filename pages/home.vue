@@ -6,6 +6,10 @@
         Login
       </v-btn>
 
+      <div class="my-4">
+        query: {{query}}
+      </div>
+
       <v-divider class="my-4"></v-divider>
       <div class="my-4">
         <v-btn
@@ -90,6 +94,11 @@ export default {
       })
       console.warn('value', value)
     }
+  },
+  copmuted: {
+    query() {
+      return this.$route.query
+    },
   },
 }
 </script>
