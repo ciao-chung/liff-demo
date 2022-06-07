@@ -22,6 +22,16 @@
           {{method.name}}
         </v-btn>
       </div>
+
+      <v-textarea
+        outlined
+        dense
+        v-model="message"
+      ></v-textarea>
+
+      <v-btn @click="sendMessage">
+        send message
+      </v-btn>
     </v-container>
   </div>
 </template>
@@ -30,6 +40,7 @@
 import siteConfig from "~/src/config/site"
 export default {
   data: () => ({
+    message: '',
     methods: [
       {
         name: 'getAccessToken',
@@ -47,6 +58,17 @@ export default {
     this.initLiff()
   },
   methods: {
+    async sendMessage() {
+      try {
+        await window.liff.sendMessages({
+          type: 'text',
+          text: "Hello, World!",
+        })
+        this.$snotify.success('發送成功')
+      } catch (error) {
+        console.warn(error)
+      }
+    },
     async initLiff() {
       try {
         await window.liff.init({
@@ -95,7 +117,7 @@ export default {
       console.warn('value', value)
     }
   },
-  copmuted: {
+  computed: {
     query() {
       return this.$route.query
     },
