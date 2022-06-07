@@ -2,8 +2,12 @@
   <div>
     <v-container>
       <div class="text-h3">LIFF</div>
-      <v-btn @click="login">
+      <v-btn @click="login" class="mr-4 mb-4">
         Login
+      </v-btn>
+
+      <v-btn @click="reload" class="mr-4 mb-4">
+        reload
       </v-btn>
 
       <div class="my-4">
@@ -29,7 +33,7 @@
         v-model="message"
       ></v-textarea>
 
-      <v-btn @click="sendMessage">
+      <v-btn @click="sendMessage" :disabled="!message">
         send message
       </v-btn>
     </v-container>
@@ -58,12 +62,15 @@ export default {
     this.initLiff()
   },
   methods: {
+    reload() {
+      window.location.reload()
+    },
     async sendMessage() {
       try {
         await window.liff.sendMessages([
           {
             type: 'text',
-            text: "Hello, World!",
+            text: this.message,
           },
         ])
         this.$snotify.success('發送成功')
