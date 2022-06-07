@@ -60,10 +60,12 @@ export default {
   methods: {
     async sendMessage() {
       try {
-        await window.liff.sendMessages({
-          type: 'text',
-          text: "Hello, World!",
-        })
+        await window.liff.sendMessages([
+          {
+            type: 'text',
+            text: "Hello, World!",
+          },
+        ])
         this.$snotify.success('發送成功')
       } catch (error) {
         console.warn(error)
