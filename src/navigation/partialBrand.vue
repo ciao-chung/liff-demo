@@ -13,14 +13,18 @@
       <span
         class="pa-2"
         :class="textClass"
-      >{{siteName}}</span>
+      >{{siteName}} {{version}}</span>
     </v-toolbar-title>
   </nuxt-link>
 </template>
 
 <script lang="babel" type="text/babel">
+import {version} from 'src/../package.json'
 export default {
   computed: {
+    version() {
+      return version
+    },
     siteName() {
       return this.$store.getters['base/siteName']
     },
