@@ -67,6 +67,10 @@ export default {
         this.$snotify.success('發送成功')
       } catch (error) {
         console.warn(error)
+        this.$apopup.base({
+          title: '發送失敗',
+          content: error,
+        })
       }
     },
     async initLiff() {
