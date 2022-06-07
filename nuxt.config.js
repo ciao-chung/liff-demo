@@ -11,9 +11,9 @@ export default {
   ssr: true,
   modern: isProductionMode ? true : false,
 
-  // router: {
-  //   base: isProductionMode ? '/liff-demo/' : '/',
-  // },
+  router: {
+    base: isProductionMode ? '/liff-demo/' : '/',
+  },
   generate: {
     dir: 'docs',
     routes: [
