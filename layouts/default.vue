@@ -1,18 +1,20 @@
 <template>
   <v-app eagle-root v-if="application" v-resize="onWindowResize">
-    <navigation></navigation>
-    <v-main :eagle-page="$route.name">
-      <breadcrumbs></breadcrumbs>
-
-      <component :is="containerComponent">
-        <nuxt />
-      </component>
-    </v-main>
-
     <client-only>
-      <menuMobile></menuMobile>
+      <navigation></navigation>
+      <v-main :eagle-page="$route.name">
+        <breadcrumbs></breadcrumbs>
+
+        <component :is="containerComponent">
+          <nuxt />
+        </component>
+      </v-main>
+
+      <client-only>
+        <menuMobile></menuMobile>
+      </client-only>
+      <basePlugin></basePlugin>
     </client-only>
-    <basePlugin></basePlugin>
   </v-app>
 </template>
 
