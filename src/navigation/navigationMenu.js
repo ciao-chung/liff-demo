@@ -10,12 +10,6 @@ export default {
             name: 'home',
           },
         },
-        {
-          label: 'foobar',
-          route: {
-            name: 'foobar',
-          },
-        },
       ]
 
       return menu

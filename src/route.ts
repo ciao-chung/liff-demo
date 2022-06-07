@@ -17,14 +17,9 @@ export function createRouter() {
         name: 'home',
         meta: {
           container: false,
-          mutantNav: true,
+          // mutantNav: true,
         },
         component: () => import('pages/home.vue').then(m => m.default || m),
-      },
-      {
-        path: `/foobar`,
-        name: 'foobar',
-        component: () => import('pages/foobar.vue').then(m => m.default || m),
       },
     ]
   })

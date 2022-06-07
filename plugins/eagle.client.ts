@@ -9,6 +9,10 @@ import 'kernel/libs/lodashLoader'
 
 // language
 import language from 'kernel/libs/language'
+import liff from '@line/liff'
+
+// @ts-ignore
+window.liff = liff
 
 // @ts-ignore
 import $ from 'jquery'

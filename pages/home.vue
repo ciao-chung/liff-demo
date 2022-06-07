@@ -1,7 +1,5 @@
 <template>
   <div>
-    <topPhoto></topPhoto>
-
     <v-container>
       home page
     </v-container>
@@ -11,7 +9,6 @@
 <script lang="babel" type="text/babel">
 export default {
   components: {
-    topPhoto: () => import('pages/home/topPhoto.vue'),
   },
 }
 </script>
