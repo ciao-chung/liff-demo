@@ -88,9 +88,9 @@ export default {
           },
         ])
         this.$snotify.success('邀請連結已發送成功')
-        setTimeout(() => {
-          window.liff.closeWindow()
-        }, 1000)
+        // setTimeout(() => {
+        //   window.liff.closeWindow()
+        // }, 1000)
       } catch (error) {
         console.warn(error)
         this.$apopup.base({
