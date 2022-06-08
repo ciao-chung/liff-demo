@@ -79,15 +79,25 @@ export default {
     this.initLiff()
   },
   methods: {
-    share() {
-      window.liff.shareTargetPicker({
-        type: 'uri',
-        uri: `https://www.google.com?code=${this.otp}`,
-      })
-      this.$snotify.success('邀請連結已發送成功')
-      setTimeout(() => {
-        window.liff.closeWindow()
-      }, 1000)
+    async share() {
+      try {
+        await window.liff.shareTargetPicker([
+          {
+            type: 'uri',
+            uri: `https://www.google.com?code=${this.otp}`,
+          },
+        ])
+        this.$snotify.success('邀請連結已發送成功')
+        setTimeout(() => {
+          window.liff.closeWindow()
+        }, 1000)
+      } catch (error) {
+        console.warn(error)
+        this.$apopup.base({
+          title: '發送失敗',
+          content: error,
+        })
+      }
     },
     reload() {
       window.location.reload()
