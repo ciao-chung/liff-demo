@@ -91,8 +91,8 @@ export default {
             altText: '請點此加入餐廳',
             template: {
               type: 'buttons',
-              // thumbnailImageUrl: 'https://images.unsplash.com/photo-1528994618239-4d83bbdb7a0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-              text: '請點此加入餐廳',
+              thumbnailImageUrl: 'https://images.unsplash.com/photo-1528994618239-4d83bbdb7a0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+              text: '板橋邀請你加入他的『嘉良冰果室』太平分店',
               actions: [
                 {
                   type: 'uri',
