@@ -83,17 +83,28 @@ export default {
       try {
         await window.liff.shareTargetPicker([
           {
-            // type: 'uri',
-            // label: '請點此加入餐廳',
-            // uri: `https://www.google.com?code=${this.otp}`,
             type: 'text',
             text: 'Hello, World!',
           },
+          {
+            type: 'template',
+            altText: '請點此加入餐廳',
+            template: {
+              type: 'buttons',
+              // thumbnailImageUrl: 'https://images.unsplash.com/photo-1528994618239-4d83bbdb7a0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+              text: '請點此加入餐廳',
+              actions: {
+                type: 'uri',
+                label: '請點此加入餐廳',
+                uri: `https://www.google.com?code=${this.otp}`,
+              },
+            },
+          },
         ])
         this.$snotify.success('邀請連結已發送成功')
-        // setTimeout(() => {
-        //   window.liff.closeWindow()
-        // }, 1000)
+        setTimeout(() => {
+          window.liff.closeWindow()
+        }, 1000)
       } catch (error) {
         console.warn(error)
         this.$apopup.base({
