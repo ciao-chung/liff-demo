@@ -86,7 +86,9 @@ export default {
             type: 'uri',
             uri: `https://www.google.com?code=${this.otp}`,
           },
-        ])
+        ], {
+          isMultiple: false,
+        })
         this.$snotify.success('邀請連結已發送成功')
         // setTimeout(() => {
         //   window.liff.closeWindow()
