@@ -83,9 +83,11 @@ export default {
       try {
         await window.liff.shareTargetPicker([
           {
-            type: 'uri',
-            label: '請點此加入餐廳',
-            uri: `https://www.google.com?code=${this.otp}`,
+            // type: 'uri',
+            // label: '請點此加入餐廳',
+            // uri: `https://www.google.com?code=${this.otp}`,
+            type: 'text',
+            text: 'Hello, World!',
           },
         ])
         this.$snotify.success('邀請連結已發送成功')
