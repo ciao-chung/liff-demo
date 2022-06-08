@@ -75,7 +75,7 @@ export default {
         ])
         this.$snotify.success('發送成功')
         setTimeout(() => {
-          window.liff.closeWindow
+          window.liff.closeWindow()
         }, 1000)
       } catch (error) {
         console.warn(error)
