@@ -36,6 +36,22 @@
       <v-btn @click="sendMessage" :disabled="!message">
         send message
       </v-btn>
+
+      <v-divider class="my-4"></v-divider>
+
+      <div>
+        <div class="text-h4">發送邀請驗證碼</div>
+        <v-text-field
+          outlined
+          dense
+          :value="otp"
+        ></v-text-field>
+
+        <v-btn @click="share">
+          發送
+        </v-btn>
+
+      </div>
     </v-container>
   </div>
 </template>
@@ -56,12 +72,23 @@ export default {
         name: 'scanCode',
       },
     ],
+    otp: 'ABC123',
   }),
   mounted() {
     console.warn('siteConfig.liffId', siteConfig.liffId)
     this.initLiff()
   },
   methods: {
+    share() {
+      window.liff.shareTargetPicker({
+        type: 'uri',
+        uri: `https://www.google.com?code=${this.otp}`,
+      })
+      this.$snotify.success('邀請連結已發送成功')
+      setTimeout(() => {
+        window.liff.closeWindow()
+      }, 1000)
+    },
     reload() {
       window.location.reload()
     },
