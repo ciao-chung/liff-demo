@@ -24,7 +24,7 @@ export default {
   }),
   methods: {
     async getShareUrl() {
-      const url = `https://ciao-chung.github.io/liff-demo/join?code=${this.otp}`
+      const url = `https://ciao-chung.github.io/liff-demo/#/join?code=${this.otp}`
       return await window.liff.permanentLink.createUrlBy(url)
     },
     async share() {
