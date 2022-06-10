@@ -14,6 +14,11 @@ import liff from '@line/liff'
 // @ts-ignore
 window.liff = liff
 // @ts-ignore
+window.liff.init({
+  liffId: '1657198221-yl3GQYl7',
+})
+
+// @ts-ignore
 import $ from 'jquery'
 // @ts-ignore
 window.$ = $

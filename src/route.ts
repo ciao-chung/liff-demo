@@ -15,11 +15,17 @@ export function createRouter() {
       {
         path: `/`,
         name: 'home',
-        meta: {
-          container: false,
-          // mutantNav: true,
-        },
         component: () => import('pages/home.vue').then(m => m.default || m),
+      },
+      {
+        path: `/invite`,
+        name: 'invite',
+        component: () => import('pages/invite.vue').then(m => m.default || m),
+      },
+      {
+        path: `/join`,
+        name: 'join',
+        component: () => import('pages/join.vue').then(m => m.default || m),
       },
     ]
   })
