@@ -79,8 +79,13 @@ export default {
     this.initLiff()
   },
   methods: {
+    async getShareUrl() {
+      const url = `https://liff.line.me/1657198221-yl3GQYl7/invite?code=${this.otp}`
+      return await window.liff.permanentLink.createUrlBy(url)
+    },
     async share() {
       try {
+        const url = await this.getShareUrl()
         await window.liff.shareTargetPicker([
           {
             type: 'text',
@@ -97,7 +102,7 @@ export default {
                 {
                   type: 'uri',
                   label: '請點此加入餐廳',
-                  uri: `https://www.google.com?code=${this.otp}`,
+                  uri: url,
                 }
               ],
             },
