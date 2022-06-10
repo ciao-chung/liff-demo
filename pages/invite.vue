@@ -13,6 +13,13 @@
         發送
       </v-btn>
 
+      <div class="my-4">
+        LINK: {{url}}
+      </div>
+
+      <div class="my-4">
+        error: {{error}}
+      </div>
     </div>
   </div>
 </template>
@@ -21,15 +28,30 @@
 export default {
   data: () => ({
     otp: 'ABC123',
+    url: null,
+    error: null,
   }),
+  created() {
+    this.init()
+  },
   methods: {
-    async getShareUrl() {
-      const url = `https://liff.line.me/1657198221-yl3GQYl7/join?code=${this.otp}`
-      return await window.liff.permanentLink.createUrlBy(url)
+    async init() {
+      const url = `https://ciao-chung.github.io/liff-demo/join?code=${this.otp}`
+      // const url = `https://liff.line.me/1657198221-yl3GQYl7/join?code=${this.otp}`
+      console.info('url', url)
+      try {
+        this.url = await window.liff.permanentLink.createUrlBy(url)
+      } catch (error) {
+        console.warn(error)
+        this.error = error
+        this.$apopup.base({
+          title: '建立LIFF URL',
+          content: error,
+        })
+      }
     },
     async share() {
       try {
-        const url = await this.getShareUrl()
         await window.liff.shareTargetPicker([
           {
             type: 'text',
@@ -41,12 +63,13 @@ export default {
             template: {
               type: 'buttons',
               thumbnailImageUrl: 'https://images.unsplash.com/photo-1595871277397-08901ed2d7f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNoYXZlZCUyMGljZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-              text: '板橋邀請你加入他的『嘉良冰果室』太平分店',
+              title: '板橋邀請你加入他的『嘉良冰果室』太平分店',
+              text: this.url,
               actions: [
                 {
                   type: 'uri',
                   label: '請點此加入餐廳',
-                  uri: url,
+                  uri: this.url,
                 }
               ],
             },
