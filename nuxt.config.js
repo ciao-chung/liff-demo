@@ -18,6 +18,8 @@ export default {
     dir: 'docs',
     routes: [
       '/',
+      '/invite',
+      '/join',
     ]
   },
 

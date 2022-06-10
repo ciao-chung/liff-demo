@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/join", {data:[{}],fetch:{"0":{}},mutations:[["base\u002FinitApplication",{}]]});
