@@ -57,6 +57,9 @@ export default {
       {
         name: 'scanCode',
       },
+      {
+        name: 'scanCodeV2',
+      },
     ],
   }),
   mounted() {
@@ -67,26 +70,18 @@ export default {
     reload() {
       window.location.reload()
     },
-    async sendMessage() {
-      try {
-        await window.liff.sendMessages([
-          {
-            type: 'text',
-            text: this.message,
-          },
-        ])
-        this.$snotify.success('發送成功')
-        setTimeout(() => {
-          window.liff.closeWindow()
-        }, 1000)
-      } catch (error) {
-        console.warn(error)
-        this.$apopup.base({
-          title: '發送失敗',
-          content: error,
-        })
-      }
-    },
+  async sendMessage() {
+    try {
+      await window.liff.sendMessages([
+        {
+          type: 'text',
+          text: 'message',
+        },
+      ])
+    } catch (error) {
+      console.warn(error)
+    }
+  },
     // async initLiff() {
     //   try {
     //     await window.liff.init({
