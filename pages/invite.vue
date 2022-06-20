@@ -79,7 +79,6 @@ export default {
       console.warn(error)
     }
   },
-  },
   computed: {
     query() {
       return this.$route.query

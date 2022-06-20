@@ -70,18 +70,18 @@ export default {
     reload() {
       window.location.reload()
     },
-  async sendMessage() {
-    try {
-      await window.liff.sendMessages([
-        {
-          type: 'text',
-          text: 'message',
-        },
-      ])
-    } catch (error) {
-      console.warn(error)
-    }
-  },
+    async sendMessage() {
+      try {
+        await window.liff.sendMessages([
+          {
+            type: 'text',
+            text: 'message',
+          },
+        ])
+      } catch (error) {
+        console.warn(error)
+      }
+    },
     // async initLiff() {
     //   try {
     //     await window.liff.init({
