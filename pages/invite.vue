@@ -50,34 +50,35 @@ export default {
         })
       }
     },
-  async share() {
-    try {
-      await window.liff.shareTargetPicker([
-        {
-          type: 'text',
-          text: 'Hello, World!',
-        },
-        {
-          type: 'template',
-          altText: '請點此加入餐廳',
-          template: {
-            type: 'buttons',
-            thumbnailImageUrl: 'https://images.unsplash.com/photo-1595871277397-08901ed2d7f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNoYXZlZCUyMGljZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-            title: '板橋邀請你加入他的『嘉良冰果室』太平分店',
-            text: this.url,
-            actions: [
-              {
-                type: 'uri',
-                label: '請點此加入餐廳',
-                uri: this.url,
-              }
-            ],
+    async share() {
+      try {
+        await window.liff.shareTargetPicker([
+          {
+            type: 'text',
+            text: 'Hello, World!',
           },
-        },
-      ])
-    } catch (error) {
-      console.warn(error)
-    }
+          {
+            type: 'template',
+            altText: '請點此加入餐廳',
+            template: {
+              type: 'buttons',
+              thumbnailImageUrl: 'https://images.unsplash.com/photo-1595871277397-08901ed2d7f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNoYXZlZCUyMGljZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+              title: '板橋邀請你加入他的『嘉良冰果室』太平分店',
+              text: this.url,
+              actions: [
+                {
+                  type: 'uri',
+                  label: '請點此加入餐廳',
+                  uri: this.url,
+                }
+              ],
+            },
+          },
+        ])
+      } catch (error) {
+        console.warn(error)
+      }
+    },
   },
   computed: {
     query() {
