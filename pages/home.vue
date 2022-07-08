@@ -10,6 +10,26 @@
         reload
       </v-btn>
 
+      <v-btn @click="getAccessToken" class="mr-4 mb-4">
+        getAccessToken
+      </v-btn>
+
+      <v-btn @click="getIDToken" class="mr-4 mb-4">
+        getIDToken
+      </v-btn>
+
+      <v-btn @click="getDecodedIDToken" class="mr-4 mb-4">
+        getDecodedIDToken
+      </v-btn>
+
+      <v-btn @click="isLoggedInAction" class="mr-4 mb-4">
+        isLoggedIn
+      </v-btn>
+
+      <v-btn @click="getProfile" class="mr-4 mb-4">
+        getProfile
+      </v-btn>
+
       <div class="my-4">
         query: {{query}}
       </div>
@@ -38,6 +58,13 @@
       </v-btn>
 
       <v-divider class="my-4"></v-divider>
+
+      <div class="my-4">query: {{query}}</div>
+      <div class="my-4">accessToken: {{accessToken}}</div>
+      <div class="my-4">idToken: {{idToken}}</div>
+      <div class="my-4">decodedIDToken: {{decodedIDToken}}</div>
+      <div class="my-4">isLoggedIn: {{isLoggedIn}}</div>
+      <div class="my-4">profile: {{profile}}</div>
     </v-container>
   </div>
 </template>
@@ -46,6 +73,11 @@
 import siteConfig from "~/src/config/site"
 export default {
   data: () => ({
+    idToken: null,
+    decodedIDToken: null,
+    accessToken: null,
+    isLoggedIn: null,
+    profile: null,
     message: '',
     methods: [
       {
@@ -81,6 +113,26 @@ export default {
       } catch (error) {
         console.warn(error)
       }
+    },
+    getAccessToken() {
+      this.accessToken = window.liff.getAccessToken()
+      console.warn('accessToken', this.accessToken)
+    },
+    getIDToken() {
+      this.idToken = window.liff.getIDToken()
+      console.warn('idToken', this.idToken)
+    },
+    getDecodedIDToken() {
+      this.decodedIDToken = window.liff.getDecodedIDToken()
+      console.warn('decodedIDToken', this.decodedIDToken)
+    },
+    isLoggedInAction() {
+      this.isLoggedIn = window.liff.isLoggedIn()
+      console.warn('isLoggedIn', this.isLoggedIn)
+    },
+    async getProfile() {
+      this.profile = await window.liff.getProfile()
+      console.warn('profile', this.profile)
     },
     // async initLiff() {
     //   try {
