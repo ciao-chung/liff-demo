@@ -112,8 +112,8 @@ export default {
 <div class="mb-4">isLoggedIn: ${isLoggedIn}</div>
 <div class="mb-4">idToken: ${idToken}</div>
 <div class="mb-4">accessToken: ${accessToken}</div>
-<div class="mb-4">decodedIDToken: ${decodedIDToken}</div>
-<div class="mb-4">profile: ${profile}</div>
+<div class="mb-4">decodedIDToken: ${JSON.stringify(decodedIDToken)}</div>
+<div class="mb-4">profile: ${JSON.stringify(profile)}</div>
 `,
         isHtml: true,
       })
