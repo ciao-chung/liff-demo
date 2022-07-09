@@ -97,8 +97,27 @@ export default {
   mounted() {
     console.warn('siteConfig.liffId', siteConfig.liffId)
     // this.initLiff()
+    this.init()
   },
   methods: {
+    async init() {
+      const profile = await window.liff.getProfile()
+      const accessToken = window.liff.getAccessToken()
+      const idToken = window.liff.getIDToken()
+      const isLoggedIn = window.liff.isLoggedIn()
+      const decodedIDToken = window.liff.getDecodedIDToken()
+      this.$apopup.base({
+        width: '1000px',
+        content: `
+<div class="mb-4">isLoggedIn: ${isLoggedIn}</div>
+<div class="mb-4">idToken: ${idToken}</div>
+<div class="mb-4">accessToken: ${accessToken}</div>
+<div class="mb-4">decodedIDToken: ${decodedIDToken}</div>
+<div class="mb-4">profile: ${profile}</div>
+`,
+        isHtml: true,
+      })
+    },
     reload() {
       window.location.reload()
     },
